@@ -12,9 +12,10 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   mktWrapper: {
+    flex: 1,
     backgroundColor: '#1E2127',
     height: '100%',
     paddingHorizontal: 5,
-    paddingVertical: 15
+    paddingVertical: 25
   }
 })
