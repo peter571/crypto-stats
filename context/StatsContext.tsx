@@ -50,10 +50,10 @@ export const StatsProvider = ({ children }: ProviderProp) => {
       try {
         dispatch({ type: Actions.LOADING, payload: true });
         const { news } = await fetchNews();
-        dispatch({ type: Actions.COINS, payload: news });
+        dispatch({ type: Actions.NEWS, payload: news });
         dispatch({ type: Actions.LOADING, payload: false });
       } catch (error) {
-        dispatch({ type: Actions.ERRORCOINS, payload: "No articles found!" });
+        dispatch({ type: Actions.ERRORNEWS, payload: "No articles found!" });
       }
     }
     getNews();

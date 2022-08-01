@@ -31,7 +31,8 @@ export default function Markets() {
 
 const styles = StyleSheet.create({
   marketWrapper: {
-    flex: 1
+    flex: 1,
+    marginHorizontal: 10
   },
   tabsWrapper: {
     flexDirection: "row",

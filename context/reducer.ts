@@ -10,13 +10,13 @@ export const reducer = (state: GlobalContent, action: ActionsProp) => {
     case Actions.NEWS:
       return { ...state, news: action.payload };
     case Actions.LOADING:
-      return { ...state, coins: action.payload };
+      return { ...state, loading: action.payload };
     case Actions.ERRORNEWS:
-      return { ...state, error: action.payload };
+      return { ...state, errornews: action.payload };
     case Actions.ERRORNFTS:
-      return { ...state, error: action.payload };
+      return { ...state, errornfts: action.payload };
     case Actions.ERRORCOINS:
-      return { ...state, error: action.payload };
+      return { ...state, errorcoins: action.payload };
     default:
       return state;
   }

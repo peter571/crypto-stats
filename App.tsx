@@ -2,12 +2,15 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { News, Home } from "./screens";
-import { RootParamList } from "./types";
+import { NewsParamList, RootParamList } from "./types";
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { StatsProvider } from "./context/StatsContext";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Article from "./components/Article/Article";
 
-const Tab = createMaterialBottomTabNavigator<RootParamList>();
+const Tab = createMaterialBottomTabNavigator<RootParamList>()
+const NewsStack = createNativeStackNavigator<NewsParamList>()
 
 export default function App() {
   const [loaded] = useFonts({
@@ -19,6 +22,15 @@ export default function App() {
 
   if (!loaded) {
     return null;
+  }
+
+  function NewsArticles() {
+    return (
+      <NewsStack.Navigator>
+        <NewsStack.Screen name="Articles" component={News} options={{ headerShown: false }} />
+        <NewsStack.Screen name="Article" component={Article} />
+      </NewsStack.Navigator>
+    );
   }
 
   return (
@@ -41,7 +53,7 @@ export default function App() {
           />
           <Tab.Screen
             name="News"
-            component={News}
+            component={NewsArticles}
             options={{
               tabBarIcon: ({ color }) => (
                 <Ionicons name="newspaper" size={24} color={color} />

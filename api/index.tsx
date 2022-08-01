@@ -40,7 +40,7 @@ export async function fetchNfts(): Promise<NftsDataProp> {
 //Fetch News
 export async function fetchNews(): Promise<NewsData> {
   
-  const options = {
+  const newsoptions = {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": `${API_KEY}`,
@@ -49,11 +49,12 @@ export async function fetchNews(): Promise<NewsData> {
   };
 
   const url =
-    "https://google-news1.p.rapidapi.com/search?q=Cryptocurrency&country=US%2CGB%2CAR&lang=en&limit=50&when=30d";
+    "https://google-news1.p.rapidapi.com/search?q=Cryptocurrency&country=US%2CGB%2CAR&lang=en&limit=50&when=7d";
 
     try {
-        const { result } = await (await fetch(url, options)).json();
-        return { news: result, newsError: null };
+        const { articles } = await (await fetch(url, newsoptions)).json();
+    
+        return { news: articles, newsError: null };
       } catch (error) {
         return { news: [], newsError: "No artcles found!" }
       }

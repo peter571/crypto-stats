@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import CoinCard from "./CoinCard";
 import { StatsContext } from "../../context/StatsContext";
+import Loader from "../Loader/Loader";
 
 const options = {
   method: "get",
@@ -11,7 +12,9 @@ const options = {
 };
 
 export default function Coins() {
-  const { coins } = useContext(StatsContext);
+  const { coins, loading } = useContext(StatsContext);
+
+  if (loading) return <Loader />
   
   return (
     <View style={styles.coinsWrapper}>
@@ -21,12 +24,13 @@ export default function Coins() {
           return (
             <CoinCard
               name={item.name}
-              percentage={item["24h_change"]}
+              percentage={item["percent_change_24h"]}
               symbol={item.symbol}
               price={item.price}
               data={item.prices}
               logo={item.logo} 
-              marketType={item.bearish}            />
+              marketType={item.bearish}
+              key={item.id}            />
           );
         }}
         keyExtractor={(item) => item.id}
