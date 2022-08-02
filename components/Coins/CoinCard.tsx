@@ -9,7 +9,7 @@ export default function CoinCard(props: CoinProp) {
     <View style={styles.cardWrapper}>
       <Image
         source={{
-          uri: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png",
+          uri: props.logo,
         }}
         style={styles.coinLogo}
       />
@@ -40,7 +40,7 @@ export default function CoinCard(props: CoinProp) {
           style={[
             styles.text,
             styles.percentage,
-            props.marketType && styles.negative,
+            !props.marketType && styles.negative,
           ]}
           numberOfLines={1}
           adjustsFontSizeToFit

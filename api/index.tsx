@@ -25,12 +25,12 @@ export async function fetchCoins(): Promise<CoinsDataProp> {
 //Fetch Nfts
 export async function fetchNfts(): Promise<NftsDataProp> {
   
-  const url = "https://coins-nfts-stats.herokuapp.com/nfts";
+  const url = "https://coins-nfts-stats.herokuapp.com/coinMarketNfts";
 
       try {
         const { result } = await (await fetch(url, options)).json();
         
-        return { nfts: result.data, nftsError: null };
+        return { nfts: result, nftsError: null };
       } catch (error) {
         console.log(error);
         return { nfts: [], nftsError: "No Nfts Found!" };

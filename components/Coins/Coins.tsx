@@ -28,7 +28,7 @@ export default function Coins() {
               symbol={item.symbol}
               price={item.price}
               data={item.prices}
-              logo={item.logo} 
+              logo={item.image} 
               marketType={item.bearish}
               key={item.id}            />
           );

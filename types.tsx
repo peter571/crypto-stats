@@ -6,6 +6,11 @@ export type RootParamList = {
     Home: undefined;
   }
 
+  export type NewsParamList = {
+    Articles: undefined
+    Article: { title: string }
+  }
+
  export interface GlobalContent {
   coins: any[]
   nfts: any[]
@@ -43,7 +48,8 @@ export interface NftsDataProp {
 export interface NftCardProp {
   name: string
   logo: string
-  symbol: string
+  price: string
+  volume: string;
 } 
 
 export interface NewsData {

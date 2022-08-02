@@ -23,7 +23,7 @@ export default function NewsFeed() {
             />
           );
         }}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.title}
       />
     </View>
   );

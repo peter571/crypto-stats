@@ -29,7 +29,7 @@ export default function CoinCardGraph(props: GraphProp) {
           backgroundGradientTo: "#1E2127",
           color: (opacity = 0) =>
             `${
-              props.marketType ? "rgba(255, 74, 122" : "rgba(115, 213, 0"
+              !props.marketType ? "rgba(255, 74, 122" : "rgba(115, 213, 0"
             }, ${opacity})`,
           fillShadowGradient: "#1E2127",
           fillShadowGradientTo: "#1E2127",

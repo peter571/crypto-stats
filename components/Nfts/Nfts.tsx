@@ -7,7 +7,7 @@ import Loader from "../Loader/Loader";
 export default function Nfts() {
   const { nfts, loading } = useContext(StatsContext);
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <View style={styles.nftsWrapper}>
@@ -18,8 +18,9 @@ export default function Nfts() {
             <NftCard
               name={item.name}
               logo={item.logo}
-              symbol={item.name}
-              key={item.id}
+              key={item.rank}
+              price={item.price}
+              volume={item.volume}
             />
           );
         }}
