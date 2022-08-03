@@ -1,26 +1,25 @@
-import { View, Text, Dimensions, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import React from "react";
 import { LineChart } from "react-native-chart-kit";
 
 interface GraphProp {
-  prices: number[]
-  marketType: boolean
+  prices: number[];
+  marketType: boolean;
 }
 
 export default function CoinCardGraph(props: GraphProp) {
-
   return (
     <View style={styles.graph}>
       <LineChart
         data={{
-          labels: ["January", "February", "March", "April", "May", "June"],
+          labels: ["1", "2", "3", "4", "5", "6", "7"],
           datasets: [
             {
-              data: props.prices
+              data: props.prices,
             },
           ],
         }}
-        width={150} 
+        width={150}
         height={70}
         yAxisInterval={1}
         chartConfig={{

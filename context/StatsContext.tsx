@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { fetchCoins, fetchNfts, fetchNews } from "../api";
 import { Actions } from "../constants";
 import { GlobalContent, ProviderProp } from "../types";
@@ -26,6 +26,7 @@ export const StatsProvider = ({ children }: ProviderProp) => {
         dispatch({ type: Actions.LOADING, payload: false });
       } catch (error) {
         dispatch({ type: Actions.ERRORCOINS, payload: "No Coins found!" });
+        dispatch({ type: Actions.LOADING, payload: false });
       }
     }
     getCoins();
@@ -40,6 +41,7 @@ export const StatsProvider = ({ children }: ProviderProp) => {
         dispatch({ type: Actions.LOADING, payload: false });
       } catch (error) {
         dispatch({ type: Actions.ERRORNFTS, payload: "No nfts found!" });
+        dispatch({ type: Actions.LOADING, payload: false });
       }
     }
     getNfts();
@@ -54,6 +56,7 @@ export const StatsProvider = ({ children }: ProviderProp) => {
         dispatch({ type: Actions.LOADING, payload: false });
       } catch (error) {
         dispatch({ type: Actions.ERRORNEWS, payload: "No articles found!" });
+        dispatch({ type: Actions.LOADING, payload: false });
       }
     }
     getNews();

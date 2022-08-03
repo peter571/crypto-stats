@@ -24,7 +24,7 @@ export default function Nfts() {
             />
           );
         }}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.rank}
       />
     </View>
   );
